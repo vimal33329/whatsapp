@@ -1,119 +1,60 @@
+# Whatsapp API Tutorial
 
-# whatsapp-node-api 
+Hi, this is the implementation example of <a href="https://github.com/pedroslopez/whatsapp-web.js">whatsapp-web.js</a>
 
-  [![Support me on Patreon](https://user-images.githubusercontent.com/6497827/53698102-4af3f400-3dfe-11e9-9749-4104ceb6ea3c.png)](https://www.patreon.com/pranavms)  [![PayPal](https://user-images.githubusercontent.com/6497827/53698092-42032280-3dfe-11e9-8054-1597c62d344e.png)](https://www.paypal.me/pranavms1)
+Watch the tutorials:
 
+- <a href="https://youtu.be/IRRiN2ZQDc8">Whatsapp API Tutorial: Part 1</a>
+- <a href="https://youtu.be/hYpRQ_FE1JI">Whatsapp API Tutorial: Part 2</a>
+- <a href="https://youtu.be/uBu7Zfba1zA">Whatsapp API Tutorial: Tips & Tricks</a>
+- <a href="https://youtu.be/ksVBXF-6Jtc">Whatsapp API Tutorial: Sending Media File</a>
+- <a href="https://youtu.be/uSzjbuaHexk">Whatsapp API Tutorial: Deploy to Heroku</a>
+- <a href="https://youtu.be/5VfM9PvrYcE">Whatsapp API Tutorial: Multiple Device</a>
+- <a href="https://youtu.be/Cq8ru8iKAVk">Whatsapp API Tutorial: Multiple Device | Part 2</a>
+- <a href="https://youtu.be/bgxxUWqW6WU">Whatsapp API Tutorial: Fix Heroku Session</a>
+- <a href="https://youtu.be/iode8kstDYQ">Whatsapp API Tutorial: Dynamic Message Reply</a>
+- <a href="https://youtu.be/PF_MWklEQpM">Whatsapp API Tutorial: Fix Session & Support for Multi-Device Beta</a>
 
-> A simple NodeJS Wrapper for [whatsapp-web.js by pedroslopez](https://github.com/pedroslopez/whatsapp-web.js)
+## Important thing!
 
-  
+As because Whatsapp regularly makes an update, so we needs to always **use the latest version of whatsapp-web.js**. Some errors may occurs with the old versions, so please try to update the library version before creating an issue.
 
-• [Technologies Used](https://github.com/pranavms13/whatsapp-node-api#technologies) • [Why?](https://github.com/pranavms13/whatsapp-node-api#why) • [Goals](https://github.com/pranavms13/whatsapp-node-api#goals) • [FAQ](https://github.com/pranavms13/whatsapp-node-api#faq)
+### How to use?
 
-  
+- Clone or download this repo
+- Enter to the project directory
+- Run `npm install`
+- Run `npm run start:dev`
+- Open browser and go to address `http://localhost:8000`
+- Scan the QR Code
+- Enjoy!
 
-## [](https://github.com/pranavms13/whatsapp-node-api#technologies)💻 Technologies
+### Send message to group
 
-  
+You can send the message to any group by using `chatID` or group `name`, chatID will used if you specify the `id` field in the form, so if you want to send by `name`, only use name.
 
--  [NodeJS](https://nodejs.org/en/)
+**Paramaters:**
 
--  [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js)
+- `id` (optional if name given): the chat ID
+- `name` (optional): group name
+- `message`: the message
 
--  [puppeteer](https://github.com/GoogleChrome/puppeteer)
+Here the endpoint: `/send-group-message`
 
+Here the way to get the groups info (including ID & name):
 
-## [API Doc](https://github.com/pranavms13/whatsapp-node-api/blob/master/APIDOC.MD)
-  
+- Send a message to the API number `!groups`
+- The API will replying with the groups info
+- Use the ID to send a message
 
-## [](https://github.com/pranavms13/whatsapp-node-api#why)Why?
+### Downloading media
 
-  
+I add an example to downloading the message media if exists. Please check it in `on message` event!
 
-The main reason I decided to build this is that there are many developers who want to play around with Whatsapp API and use them in personal applications before getting/purchasing a Whatsapp Business Account API officially from Whatsapp.
+We use `mime-types` package to get the file extension by it's mimetype, so we can download all of the type of media message.
 
-  
+And we decided (for this example) to use time as the filename, because the media filename is not certain exists.
 
-## [](https://github.com/pranavms13/whatsapp-node-api#goals)Goals
+## Support Me
 
-  
-
-- 🚀 Fast!!!
-
-- 🔒 Does not touch user’s data
-
-- 💰 Free! for personal use
-
-  
-
-If you think whatsapp-node-api delivers these, let me know by putting a star ⭐ on this project.
-
-  
-
-## [](https://github.com/pranavms13/whatsapp-node-api#faq)FAQ
-
-  
-
--  **Is this app built with NodeJS?**
-
-Yes, it's built with [NodeJS](https://nodejs.org/en/). Please see the [Technologies](https://github.com/pranavms13/whatsapp-node-api#technologies) section for more info.
-
--  **What boilerplate did you use?**
-
-None. The idea was to get a better understanding of how things work together, But I do take a cue from other projects.
-
--  **What npm modules did you use?**
-
--  [express](https://github.com/expressjs/express) for API Server
-
--  [body-parser](https://github.com/expressjs/body-parser) Node.js body parser middleware
-
--  [fs](https://www.npmjs.com/package/fs) To read session.json
-
--  [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) A WhatsApp API client that connects through the WhatsApp Web browser app
-
-  
-
--  **How do I contact you?**
-
-If you find an issue, please report it here. For everything else, please drop me a line at [pranavms13@yahoo.com](mailto:pranavms13@yahoo.com)
-
--  **Do you have any other projects?**
-
-I thought you'd never ask. Yes, I do.
-
-[https://github.com/pranavms13](https://github.com/pranavms13)
-
-  
-
-## [](https://github.com/pranavms13/whatsapp-node-api#legal)📃 Legal
-
-  
-
-This code is in no way affiliated with, authorized, maintained, sponsored or endorsed by WhatsApp or any of its affiliates or subsidiaries. This is an independent and unofficial software. Use at your own risk. **Commercial use of this code/repo is strictly prohibited.**
-
-  
-
-## PR's are welcome
-
-  
-  
-  
-
-## [](https://github.com/pranavms13/whatsapp-node-api#donate)Donate
-
-  
-
-You can support the maintainer of this project through donation :
-
-  
-
-[![Support via PayPal](https://camo.githubusercontent.com/19fc947af2adcacd24b6cdbd4a33c10d7cbaeb6c/68747470733a2f2f63646e2e7261776769742e636f6d2f74776f6c66736f6e2f70617970616c2d6769746875622d627574746f6e2f312e302e302f646973742f627574746f6e2e737667)](https://www.paypal.me/pranavms1/) **or**  [UPI Donate](https://pranavms.ml/donate)
-
-  
-
-## [](https://github.com/pranavms13/whatsapp-node-api#contact-me)👋 Contact Me 👋
-
-  
-
-[ ![Contact me on telegram](https://user-images.githubusercontent.com/6497827/57844175-2ac4b600-77ed-11e9-8488-f2d45efa7497.png)](http://t.me/pranavms13) [![Mail me](https://user-images.githubusercontent.com/6497827/62424751-c1b85480-b6f0-11e9-97de-096c0a980829.png)](mailto:pranavms13@yahoo.com?subject=Regarding%20Wbot&body=Hi)
+You can make a support for this work by [DONATING](./DONATE.md). Thank you.
