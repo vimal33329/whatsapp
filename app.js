@@ -9,6 +9,7 @@ const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
+const cool = require('cool-ascii-faces');
 
 const port = process.env.PORT || 8000;
 
@@ -29,6 +30,8 @@ app.get('/', (req, res) => {
     root: __dirname
   });
 });
+
+app.get('/cool', (req, res) => res.send(cool()));
 
 const client = new Client({
   restartOnAuthFail: true,
